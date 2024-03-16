@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge6-deployment
+  labels:
+    app: web-c6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-c6
+  template:
+    metadata:
+      labels:
+        app: web-c6
+    spec:
+      containers:
+      - name: flask-app
+        image: test:1.0.0
+        ports:
+        - containerPort: 5000
+
